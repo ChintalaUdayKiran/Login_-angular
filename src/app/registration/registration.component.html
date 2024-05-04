@@ -1,0 +1,9 @@
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <input formControlName="firstName" placeholder="First Name" />
+    <input formControlName="lastName" placeholder="Last Name" />
+    <input formControlName="dob" placeholder="Date of Birth" type="date" />
+    <input formControlName="email" placeholder="Email" type="email" />
+    <input formControlName="password" placeholder="Password" type="password" />
+    <button type="submit" [disabled]="!registrationForm.valid">Register</button>
+  </form>
+  

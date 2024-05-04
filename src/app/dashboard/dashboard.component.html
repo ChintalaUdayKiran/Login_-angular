@@ -1,0 +1,32 @@
+<button (click)="logout()">Logout</button>
+<h2>User Profile</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Date of Birth</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ currentUser?.firstName }}</td>
+      <td>{{ currentUser?.lastName }}</td>
+      <td>{{ currentUser?.dob }}</td>
+      <td>{{ currentUser?.email }}</td>
+      <td><button (click)="selectUser()">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="currentUser">
+  <app-profile
+    [isEdit]="true"
+    *ngIf="selectedUser && currentUser.email === selectedUser.email"
+    [user]="selectedUser"
+    (save)="updateUser($event)"
+  ></app-profile>
+</div>

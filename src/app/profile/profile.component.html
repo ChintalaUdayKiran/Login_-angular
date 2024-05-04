@@ -1,0 +1,28 @@
+<!-- <form *ngIf="user" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <input formControlName="firstName" placeholder="First Name">
+    <input formControlName="lastName" placeholder="Last Name">
+    <input formControlName="dob" placeholder="Date of Birth" type="date">
+    <input formControlName="email" placeholder="Email" type="email">
+    <input formControlName="password" placeholder="Password" type="password">
+    <button type="submit" [disabled]="!profileForm.valid">Save</button>
+  </form>
+   -->
+
+<!-- <form [formGroup]="profileForm" (ngSubmit)="onSave()">
+    <input formControlName="firstName" placeholder="First Name">
+    <input formControlName="lastName" placeholder="Last Name">
+    <input formControlName="dob" placeholder="Date of Birth" type="date">
+    <input formControlName="email" placeholder="Email" type="email" readonly>
+    <input formControlName="password" placeholder="Password" type="password">
+    <button type="submit" [disabled]="!profileForm.valid">Save</button>
+  </form>
+   -->
+
+<form [formGroup]="profileForm" (ngSubmit)="onSave()">
+  <input formControlName="firstName" placeholder="First Name" />
+  <input formControlName="lastName" placeholder="Last Name" />
+  <input formControlName="dob" placeholder="Date of Birth" type="date" />
+  <input *ngIf="!isEdit" formControlName="email" placeholder="Email" readonly />
+  <input formControlName="password" placeholder="Password" type="password" />
+  <button type="submit" [disabled]="!profileForm.valid">Save</button>
+</form>

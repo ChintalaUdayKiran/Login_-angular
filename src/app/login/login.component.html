@@ -1,0 +1,8 @@
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <input formControlName="email" placeholder="Email" type="email" />
+    <input formControlName="password" placeholder="Password" type="password" />
+    <button type="submit" [disabled]="!loginForm.valid">Login</button>
+    <p *ngIf="loginFailed">Login failed. Please check your email and password.</p>
+    <a routerLink="/register">Click here for registration</a>
+  </form>
+  
