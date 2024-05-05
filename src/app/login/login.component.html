@@ -1,8 +1,43 @@
-<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+<!-- <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
     <input formControlName="email" placeholder="Email" type="email" />
     <input formControlName="password" placeholder="Password" type="password" />
     <button type="submit" [disabled]="!loginForm.valid">Login</button>
     <p *ngIf="loginFailed">Login failed. Please check your email and password.</p>
     <a routerLink="/register">Click here for registration</a>
   </form>
+   -->
+
+   <div class="full">
+    <div class="form-container">
+      <span class="login-header">Login Form</span>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <table>
+          <tr>
+            <td><label>Email:</label></td>
+            <td><input formControlName="email" placeholder="Email" type="email" /></td>
+            <td>
+              <span *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+                Please enter a valid Email
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td><label>Password:</label></td>
+            <td><input formControlName="password" placeholder="Password" type="password" /></td>
+            <td>
+              <span *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+                Please enter a valid Password
+              </span>
+            </td>
+          </tr>
+        </table>
+        <button type="submit" [disabled]="!loginForm.valid">Login</button>
+        <p *ngIf="loginFailed">Login failed. Please check your email and password.</p>
+        <br>
+        <label>Don't have an account <a class="here" routerLink="/register">Register here</a></label>
+        
+        
+      </form>
+    </div>
+  </div>
   

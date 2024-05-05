@@ -1,4 +1,4 @@
-<button (click)="logout()">Logout</button>
+<!-- <button (click)="logout()">Logout</button>
 <h2>User Profile</h2>
 
 <table>
@@ -29,4 +29,43 @@
     [user]="selectedUser"
     (save)="updateUser($event)"
   ></app-profile>
+</div> -->
+
+
+<div class="dashboard-wrapper">
+  <div class="header">
+    <h2 class="dashboard-title">User Dashboard</h2>
+    <button (click)="logout()" class="logout-button">Logout</button>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Date of Birth</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ currentUser?.firstName }}</td>
+          <td>{{ currentUser?.lastName }}</td>
+          <td>{{ currentUser?.dob }}</td>
+          <td>{{ currentUser?.email }}</td>
+          <td><button (click)="selectUser()">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="currentUser && selectedUser" class="profile-editor">
+    <app-profile
+      [isEdit]="true"
+      [user]="selectedUser"
+      (save)="updateUser($event)"
+    ></app-profile>
+  </div>
 </div>

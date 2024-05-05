@@ -1,9 +1,60 @@
-<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-    <input formControlName="firstName" placeholder="First Name" />
-    <input formControlName="lastName" placeholder="Last Name" />
-    <input formControlName="dob" placeholder="Date of Birth" type="date" />
-    <input formControlName="email" placeholder="Email" type="email" />
-    <input formControlName="password" placeholder="Password" type="password" />
-    <button type="submit" [disabled]="!registrationForm.valid">Register</button>
-  </form>
+
+<div class="full">
+  <div class="form-container">
+
+    <span class="Res">Registration Form</span>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      
+      <table>
+        
+        <tr>
+          <td><label>First Name: </label></td>
+          <td><input formControlName="firstName" placeholder="First Name" /></td>
+          <td><span *ngIf="registrationForm.get('firstName')?.touched && registrationForm.get('firstName')?.invalid">
+            Please enter a valid First Name
+          </span></td>
+        </tr>
+
+        <tr>
+          <td><label>Last Name: </label></td>
+          <td><input formControlName="lastName" placeholder="Last Name" /></td>
+          <td><span *ngIf="registrationForm.get('lastName')?.touched && registrationForm.get('lastName')?.invalid">
+            Please enter a valid Last Name
+          </span></td>
+        </tr>
+
+        <tr>
+          <td><label>Date Of Birth: </label></td>
+          <td><input formControlName="dob" placeholder="Date of Birth" type="date" max="{{ maxDate }}" /></td>
+          <td><span *ngIf="registrationForm.get('dob')?.touched && registrationForm.get('dob')?.invalid">
+            Please enter a valid Date of Birth
+          </span></td>
+        </tr>
+
+        <tr>
+          <td><label>Email: </label></td>
+          <td><input formControlName="email" placeholder="Email" type="email" /></td>
+          <td><span *ngIf="registrationForm.get('email')?.touched && registrationForm.get('email')?.invalid">
+            Please enter a valid Email
+          </span></td>
+        </tr>
+
+        <tr>
+          <td> <label>Password: </label></td>
+          <td><input formControlName="password" placeholder="Password" type="password" /></td>
+          <td><span *ngIf="registrationForm.get('password')?.touched && registrationForm.get('password')?.invalid">
+            Please enter a valid Password
+          </span></td>
+        </tr>
+
+      </table>
+      
+      <button type="submit" [disabled]="!registrationForm.valid">Register</button>
+      <br>
+        <label>Already have an account <a class="here" routerLink="/login">Login Here</a></label>
+    </form>
+  </div>
+</div>
+   
   
+ 

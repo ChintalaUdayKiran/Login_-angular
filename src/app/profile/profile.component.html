@@ -1,28 +1,47 @@
-<!-- <form *ngIf="user" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-    <input formControlName="firstName" placeholder="First Name">
-    <input formControlName="lastName" placeholder="Last Name">
-    <input formControlName="dob" placeholder="Date of Birth" type="date">
-    <input formControlName="email" placeholder="Email" type="email">
-    <input formControlName="password" placeholder="Password" type="password">
-    <button type="submit" [disabled]="!profileForm.valid">Save</button>
-  </form>
-   -->
-
-<!-- <form [formGroup]="profileForm" (ngSubmit)="onSave()">
-    <input formControlName="firstName" placeholder="First Name">
-    <input formControlName="lastName" placeholder="Last Name">
-    <input formControlName="dob" placeholder="Date of Birth" type="date">
-    <input formControlName="email" placeholder="Email" type="email" readonly>
-    <input formControlName="password" placeholder="Password" type="password">
-    <button type="submit" [disabled]="!profileForm.valid">Save</button>
-  </form>
-   -->
-
+<!-- 
 <form [formGroup]="profileForm" (ngSubmit)="onSave()">
+  <label>FirstName: </label>
   <input formControlName="firstName" placeholder="First Name" />
   <input formControlName="lastName" placeholder="Last Name" />
   <input formControlName="dob" placeholder="Date of Birth" type="date" />
   <input *ngIf="!isEdit" formControlName="email" placeholder="Email" readonly />
   <input formControlName="password" placeholder="Password" type="password" />
   <button type="submit" [disabled]="!profileForm.valid">Save</button>
-</form>
+</form> -->
+
+
+<div class="profile-container">
+  <form [formGroup]="profileForm" (ngSubmit)="onSave()">
+    <table class="profile-table">
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>First Name</td>
+          <td><input formControlName="firstName" placeholder="First Name" /></td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td><input formControlName="lastName" placeholder="Last Name" /></td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td>
+          <td><input formControlName="dob" placeholder="Date of Birth" type="date" max="{{ maxDate }}" /></td>
+        </tr>
+        <tr *ngIf="!isEdit">
+          <td>Email</td>
+          <td><input  formControlName="email" placeholder="Email" readonly /></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td><input formControlName="password" placeholder="Password" type="password" /></td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="submit" [disabled]="!profileForm.valid">Save</button>
+  </form>
+</div>

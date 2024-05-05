@@ -98,6 +98,7 @@ import { User } from 'src/user.model';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
+  styleUrls:['./profile.component.css']
 })
 export class ProfileComponent implements OnChanges {
   @Input() user: User | null = null;
@@ -105,8 +106,12 @@ export class ProfileComponent implements OnChanges {
   @Input() isEdit: boolean = false;
 
   profileForm: FormGroup;
+  maxDate: string;
+ 
 
   constructor(private fb: FormBuilder) {
+    const today = new Date();
+    this.maxDate = today.toISOString().split('T')[0];
     this.profileForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],

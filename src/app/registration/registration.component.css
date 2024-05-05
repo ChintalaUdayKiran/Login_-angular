@@ -1,0 +1,48 @@
+.form-container {
+    width: 400px; /* Adjust as necessary */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #d3bcbc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .form-field {
+    margin-bottom: 15px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  input.ng-touched.ng-invalid {
+    border-color: red;
+  }
+  
+  span {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .Res{
+    font-weight: bold;
+    color: black;
+    font-size: large;
+    margin-left: 75px;
+  }
+
+  .full{
+    background-color: grey;
+  }
+  .here{
+    text-decoration: none;
+  }
